@@ -4,8 +4,8 @@ PKG             := db
 $(PKG)_WEBSITE  := https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html
 $(PKG)_DESCR    := Oracle Berkeley DB
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 6.1.26
-$(PKG)_CHECKSUM := dd1417af5443f326ee3998e40986c3c60e2a7cfb5bfa25177ef7cadb2afb13a6
+$(PKG)_VERSION  := 5.3.28.NC
+$(PKG)_CHECKSUM := 76a25560d9e52a198d37a31440fd07632b5f1f8f9f2b6d5438f4bc3e7c9013ef
 $(PKG)_SUBDIR   := db-$($(PKG)_VERSION)
 $(PKG)_FILE     := db-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := https://download.oracle.com/berkeley-db/$($(PKG)_FILE)
@@ -22,7 +22,6 @@ define $(PKG)_BUILD
         $(MXE_CONFIGURE_OPTS) \
         --enable-mingw \
         --enable-cxx \
-        --enable-cryptography \
         --disable-replication
 
     $(MAKE) -C '$(1)/build_unix' -j '$(JOBS)'

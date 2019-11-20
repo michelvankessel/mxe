@@ -1,10 +1,10 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 
-PKG             := openssl
+PKG             := openssl1.0
 $(PKG)_WEBSITE  := https://www.openssl.org/
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 1.1.1d
-$(PKG)_CHECKSUM := 1e3a91bc1f9dfce01af26026f856e064eab4c8ee0a8f457b5ae30b40b8b711f2
+$(PKG)_VERSION  := 1.0.2t
+$(PKG)_CHECKSUM := 14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac7bc
 $(PKG)_SUBDIR   := openssl-$($(PKG)_VERSION)
 $(PKG)_FILE     := openssl-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := https://www.openssl.org/source/$($(PKG)_FILE)
@@ -13,6 +13,7 @@ $(PKG)_DEPS     := cc zlib
 
 define $(PKG)_UPDATE
     $(WGET) -q -O- 'https://www.openssl.org/source/' | \
+    grep "openssl-1.0.2" | \
     $(SED) -n 's,.*openssl-\([0-9][0-9a-z.]*\)\.tar.*,\1,p' | \
     $(SORT) -V | \
     tail -1
@@ -34,10 +35,13 @@ define $(PKG)_BUILD
     $(MAKE) -C '$(1)' all install_sw -j 1 \
         CC='$(TARGET)-gcc' \
         RANLIB='$(TARGET)-ranlib' \
-        AR='$(TARGET)-ar' \
-        RC='$(TARGET)-windres' \
-        CROSS_COMPILE='$(TARGET)-' \
-        $(if $(BUILD_SHARED), ENGINESDIR='$(PREFIX)/$(TARGET)/bin/engines')
+        AR='$(TARGET)-ar rcu' \
+        CROSS_COMPILE='$(TARGET)-'
+
+    # no way to configure engines subdir install
+    $(if $(BUILD_SHARED),
+        rm -rf '$(PREFIX)/$(TARGET)/bin/engines' && \
+        mv -vf '$(PREFIX)/$(TARGET)/lib/engines' '$(PREFIX)/$(TARGET)/bin/')
 endef
 
 $(PKG)_BUILD_i686-w64-mingw32   = $(subst @openssl-target@,mingw,$($(PKG)_BUILD))

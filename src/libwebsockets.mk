@@ -6,7 +6,7 @@ $(PKG)_IGNORE   :=
 $(PKG)_VERSION  := 2.4.2
 $(PKG)_CHECKSUM := 73012d7fcf428dedccc816e83a63a01462e27819d5537b8e0d0c7264bfacfad6
 $(PKG)_GH_CONF  := warmcat/libwebsockets/tags, v
-$(PKG)_DEPS     := cc openssl zlib
+$(PKG)_DEPS     := cc openssl1.0 zlib
 
 define $(PKG)_BUILD
     # build and install the library

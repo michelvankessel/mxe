@@ -7,7 +7,7 @@ $(PKG)_IGNORE   :=
 $(PKG)_VERSION  := 4.1.2
 $(PKG)_CHECKSUM := 586c682124db56bc339051e1ec76305f94d34e6167c4f9f58c5b7f73894a0fea
 $(PKG)_GH_CONF  := emweb/wt/tags
-$(PKG)_DEPS     := cc boost graphicsmagick libharu openssl pango postgresql sqlite
+$(PKG)_DEPS     := cc boost graphicsmagick libharu openssl1.0 pango postgresql sqlite
 
 define $(PKG)_BUILD
     # build wt libraries

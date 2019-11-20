@@ -3,8 +3,8 @@
 PKG             := miniupnpc
 $(PKG)_WEBSITE  := http://miniupnp.free.fr/
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 2.0
-$(PKG)_CHECKSUM := 253a0ea5fe8f17d9f79f8758e1b6415d6a560e58bf3e9b5dbe714413dc908446
+$(PKG)_VERSION  := 2.1
+$(PKG)_CHECKSUM := 19c5b6cf8f3fc31d5e641c797b36ecca585909c7f3685a5c1a64325340537c94
 $(PKG)_GH_CONF  := miniupnp/miniupnp/tags,miniupnpc_,,,_
 $(PKG)_DEPS     := cc
 

@@ -7,7 +7,7 @@ $(PKG)_IGNORE   :=
 $(PKG)_VERSION  := 2.2.1
 $(PKG)_CHECKSUM := c67fc0fa8ae6cb3d0ba0fbd8fca8ee8e4c5061b99f1fd685fd7d9800cef17f6b
 $(PKG)_GH_CONF  := KDE/qca/tags,v
-$(PKG)_DEPS     := cc openssl qtbase
+$(PKG)_DEPS     := cc openssl1.0 qtbase
 
 define $(PKG)_BUILD
     cd '$(BUILD_DIR)' && $(TARGET)-cmake '$(SOURCE_DIR)' \

@@ -6,7 +6,7 @@ $(PKG)_IGNORE   :=
 $(PKG)_VERSION  := 1.2.29
 $(PKG)_CHECKSUM := b23ec79b28f3bd8d525eed4b0c75ce1c4de7696563dde7e9dd3cdf2a172cfa3f
 $(PKG)_GH_CONF  := lsh123/xmlsec/tags,xmlsec-,,,_
-$(PKG)_DEPS     := cc gnutls libgcrypt libltdl libxml2 libxslt openssl
+$(PKG)_DEPS     := cc gnutls libgcrypt libltdl libxml2 libxslt openssl1.0
 
 define $(PKG)_BUILD
     cd '$(SOURCE_DIR)' && autoreconf -fi

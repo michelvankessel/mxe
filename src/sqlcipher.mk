@@ -7,7 +7,7 @@ $(PKG)_IGNORE   :=
 $(PKG)_VERSION  := 3.4.2
 $(PKG)_CHECKSUM := 69897a5167f34e8a84c7069f1b283aba88cdfa8ec183165c4a5da2c816cfaadb
 $(PKG)_GH_CONF  := sqlcipher/sqlcipher/tags, v
-$(PKG)_DEPS     := cc openssl readline $(BUILD)~tcl
+$(PKG)_DEPS     := cc openssl1.0 readline $(BUILD)~tcl
 
 define $(PKG)_BUILD
     # build and install the library

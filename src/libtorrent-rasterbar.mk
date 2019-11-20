@@ -8,7 +8,7 @@ $(PKG)_CHECKSUM := b7c74d004bd121bd6e9f8975ee1fec3c95c74044c6a6250f6b07f259f5512
 $(PKG)_SUBDIR   := libtorrent-rasterbar-$($(PKG)_VERSION)
 $(PKG)_FILE     := libtorrent-rasterbar-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := https://github.com/arvidn/libtorrent/releases/download/libtorrent-$(subst .,_,$($(PKG)_VERSION))/libtorrent-rasterbar-$($(PKG)_VERSION).tar.gz
-$(PKG)_DEPS     := cc boost openssl
+$(PKG)_DEPS     := cc boost openssl1.0
 
 define $(PKG)_UPDATE
     $(WGET) -q -O- 'https://github.com/arvidn/libtorrent/releases' | \

@@ -7,7 +7,7 @@ $(PKG)_IGNORE   :=
 $(PKG)_VERSION  := 0.71
 $(PKG)_CHECKSUM := 55de9fffb3c14459148b5de6c16cded6aa8aff62df69150bfb4b1a1815a7d1ef
 $(PKG)_GH_CONF  := nschlia/libdvdetect/tags,RELEASE_,,,_
-$(PKG)_DEPS     := cc openssl tinyxml
+$(PKG)_DEPS     := cc openssl1.0 tinyxml
 
 define $(PKG)_BUILD
     cd '$(BUILD_DIR)' && \
